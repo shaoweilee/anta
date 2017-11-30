@@ -27,6 +27,7 @@ html{
   position: absolute;left: 35%;width: 30%;top: 50%;
   margin-top: -15%;
   animation: 2s rotateY linear infinite;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
 .logoImg img{
@@ -44,6 +45,7 @@ html{
   position: absolute;
   left: 50%;
   top: 50%;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
 #logoIcons{
@@ -80,6 +82,7 @@ html{
 .pano{
   position: absolute;
   left: 50%;top: 50%;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
 #panobg span{
@@ -88,6 +91,7 @@ html{
   margin: -585px 0 0 -64.5px;
   width: 129px;
   height: 1170px;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 #cloud span{
@@ -100,5 +104,6 @@ html{
   left: 0;top: 0;
   margin-left: -64.5px;
   width: 129px;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
