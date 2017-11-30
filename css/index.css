@@ -1,0 +1,104 @@
+@keyframes rotateY{
+  0%{
+    transform: rotateY(0deg);
+  }
+  100%{
+    transform: rotateY(360deg);
+  }
+}
+
+body,
+p{
+  margin: 0;
+}
+body,
+html{
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+#view{
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  perspective: 300px;
+}
+.logoImg{
+  position: absolute;left: 35%;width: 30%;top: 50%;
+  margin-top: -15%;
+  animation: 2s rotateY linear infinite;
+  transform-style: preserve-3d;
+}
+.logoImg img{
+  width: 100%;
+  /* transform: scaleX(0, 0) */
+}
+.logoText{
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  text-align: center;
+}
+#logo4,
+#logoIcons{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-style: preserve-3d;
+}
+#logoIcons{
+  animation: 2s rotateY linear infinite;
+}
+#logoIcons span{
+  position: absolute;
+  width: 30px;height: 30px;
+  margin: -15px 0 0 -15px;
+  background: center center no-repeat;
+  background-size: contain;
+}
+#logo4Img{
+  position: absolute;
+  width: 196px;height: 70px;
+  margin: -35px 0 0 -88px;
+}
+#pagebg{
+  position: absolute;
+  left: 0;top: 0;
+  width: 100%;height: 100%;
+  background: url(../bg/bg.jpg) no-repeat;
+  background-size: 100% 100%;
+  opacity: 0;
+}
+#main{
+  perspective: 1024px;
+}
+#main,
+#panobg,
+#mainWrapper,
+#cloud,
+#pano,
+.pano{
+  position: absolute;
+  left: 50%;top: 50%;
+  transform-style: preserve-3d;
+}
+#panobg span{
+  position: absolute;
+  left: 0;top: 0;
+  margin: -585px 0 0 -64.5px;
+  width: 129px;
+  height: 1170px;
+  backface-visibility: hidden;
+}
+#cloud span{
+  position: absolute;left: 50%;top: 50%;
+  width: 200px;height: 100px;
+  margin: -50px 0 0 -100px;
+}
+#pano span{
+  position: absolute;
+  left: 0;top: 0;
+  margin-left: -64.5px;
+  width: 129px;
+  backface-visibility: hidden;
+}
