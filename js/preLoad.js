@@ -35,7 +35,7 @@ function setLoading(){
     img.src = data[i];
     img.onload = function(){
       num++;
-      logoText.innerHTML = '已加载${Math.floor(num/data.length*100)}%';
+      logoText.innerHTML = '已加载'+Math.floor(num/data.length*100) + '%';
       if (num == data.length) {
         //图片加载完成之后~
         anmt();
@@ -97,7 +97,7 @@ function anmt2() {
         time: 800,
         type: "bounceOut",
         callBack: function(){
-          setTimeout(() => {
+          setTimeout(function(){
             MTween({
               el: img,
               target: {scale: 0},
@@ -115,13 +115,13 @@ function anmt3(){
   var view = document.querySelector('#view');
   var logo4 = document.createElement('div');
   var logoIcons = document.createElement('div');
-  const logo4Img = new Image();
+  var logo4Img = new Image();
   logo4Img.src = imgData.logo[2];
   logo4Img.id = 'logo4Img';
   var iconLength = 27;
   logo4.id = 'logo4';
   logoIcons.id = 'logoIcons';
-  for (let i = 0; i < iconLength; i++) {
+  for (var i = 0; i < iconLength; i++) {
     var span = document.createElement('span');
     var R = Math.round( Math.random() * 200 + 50 );
     var Y = Math.round( Math.random() * -400 + 200 );
@@ -131,14 +131,14 @@ function anmt3(){
     css(span, 'translateZ', R);
     css(span, 'rotateX', Xdeg);
     css(span, 'translateY', Y);
-    span.style.backgroundImage = `url(${imgData.logoIco[i % imgData.logoIco.length]})`;
+    span.style.backgroundImage = 'url('+ imgData.logoIco[i % imgData.logoIco.length]+')';
     logoIcons.appendChild(span);
   }
   css(logo4, 'scale', 0);
   logo4.appendChild(logoIcons);
   logo4.appendChild(logo4Img);
   view.appendChild(logo4);
-  setTimeout(() => {
+  setTimeout(function(){
     MTween({
       el: logo4,
       target: {scale: 100},
@@ -180,11 +180,11 @@ function anmt6(){//生成背景圆柱，圆柱入场
   var unitDeg = Math.PI/180;
   var R = Math.floor( (width/2) / Math.tan( deg/2*unitDeg ) )-2;
   var startDeg = 180;
-  for (let i = 0; i < imgData.bg.length; i++) {
+  for (var i = 0; i < imgData.bg.length; i++) {
     var span = document.createElement('span');
     css(span, "rotateY", startDeg - i*deg);
     css(span, "translateZ", -R);
-    span.style.backgroundImage = `url(${imgData.bg[i]})`;
+    span.style.backgroundImage = 'url(' + imgData.bg[i] + ')';
     panobg.appendChild(span);
   }
   MTween({
@@ -197,9 +197,9 @@ function anmt6(){//生成背景圆柱，圆柱入场
 }
 function anmt7(){//添加云朵
   var cloud = document.querySelector('#cloud');
-  for (let i = 0; i < 9; i++) {
+  for (var i = 0; i < 9; i++) {
     var span = document.createElement('span');
-    span.style.backgroundImage = `url(${imgData.cloud[ i%imgData.cloud.length ]})`;
+    span.style.backgroundImage = 'url('+ imgData.cloud[ i%imgData.cloud.length ]+')';
     var R = 300;
     var deg = Math.random()*360;
     var x = Math.sin(deg*Math.PI/180)*R;
@@ -217,7 +217,7 @@ function anmt7(){//添加云朵
     type:'easeOutStrong',
     callIn: function(){
       var deg = -css(cloud, 'rotateY');
-      for (let i = 0; i < cloud.children.length; i++) {
+      for (var i = 0; i < cloud.children.length; i++) {
         css(cloud.children[i], 'rotateY', deg);
       }
     },
@@ -336,13 +336,13 @@ function createPano(){
   css(pano, 'scale', 0);
   var num = 0;
   drift1.className = 'pano';
-  for (let i = 0; i < 2; i++) {//第一个漂浮层的图片数
+  for (var i = 0; i < 2; i++) {//第一个漂浮层的图片数
     var span = document.createElement('span');
     span.style.cssText = "height: 344px;margin-top: -172px;";
     css(span, 'translateY', -163);
     css(span, 'rotateY', startDeg);
     css(span, 'translateZ', -R);
-    span.style.backgroundImage = `url(${imgData.pano[num++]})`;
+    span.style.backgroundImage = 'url(' + imgData.pano[num++] + ')';
     drift1.appendChild(span);
     startDeg -= deg;
   }
@@ -350,13 +350,13 @@ function createPano(){
   //浮层2开始
   var drift2 = document.createElement('div');
   drift2.className = 'pano';
-  for (let i = 0; i < 3; i++) {//第一个漂浮层的图片数
+  for (var i = 0; i < 3; i++) {//第一个漂浮层的图片数
     var span = document.createElement('span');
     span.style.cssText = "height: 326px;margin-top: -172px;";
     css(span, 'translateY', 278);
     css(span, 'rotateY', startDeg);
     css(span, 'translateZ', -R);
-    span.style.backgroundImage = `url(${imgData.pano[num++]})`;
+    span.style.backgroundImage = 'url(' + imgData.pano[num++] + ')';
     drift2.appendChild(span);
     startDeg -= deg;
   }
@@ -364,13 +364,13 @@ function createPano(){
   //浮层3开始
   var drift3 = document.createElement('div');
   drift3.className = 'pano';
-  for (let i = 0; i < 4; i++) {//第一个漂浮层的图片数
+  for (var i = 0; i < 4; i++) {//第一个漂浮层的图片数
     var span = document.createElement('span');
     span.style.cssText = "height: 195px;margin-top: -97.5px;";
     css(span, 'translateY', 192.5);
     css(span, 'rotateY', startDeg);
     css(span, 'translateZ', -R);
-    span.style.backgroundImage = `url(${imgData.pano[num++]})`;
+    span.style.backgroundImage = 'url(' + imgData.pano[num++] + ')';
     drift3.appendChild(span);
     startDeg -= deg;
   }
@@ -379,13 +379,13 @@ function createPano(){
   var drift4 = document.createElement('div');
   var startDeg = 90;
   drift4.className = 'pano';
-  for (let i = 0; i < 5; i++) {//第一个漂浮层的图片数
+  for (var i = 0; i < 5; i++) {//第一个漂浮层的图片数
     var span = document.createElement('span');
     span.style.cssText = "height: 468px;margin-top: -234px;";
     css(span, 'translateY', 129);
     css(span, 'rotateY', startDeg);
     css(span, 'translateZ', -R);
-    span.style.backgroundImage = `url(${imgData.pano[num++]})`;
+    span.style.backgroundImage = 'url(' + imgData.pano[num++] + ')';
     drift4.appendChild(span);
     startDeg -= deg;
   }
@@ -394,13 +394,13 @@ function createPano(){
   var drift5 = document.createElement('div');
   var startDeg = 18;
   drift5.className = 'pano';
-  for (let i = 0; i < 6; i++) {//第一个漂浮层的图片数
+  for (var i = 0; i < 6; i++) {//第一个漂浮层的图片数
     var span = document.createElement('span');
     span.style.cssText = "height: 582px;margin-top: -291px;";
     css(span, 'translateY', 256);
     css(span, 'rotateY', startDeg);
     css(span, 'translateZ', -R);
-    span.style.backgroundImage = `url(${imgData.pano[num++]})`;
+    span.style.backgroundImage = 'url(' + imgData.pano[num++] + ')';
     drift5.appendChild(span);
     startDeg -= deg;
   }
@@ -409,18 +409,18 @@ function createPano(){
   var drift6 = document.createElement('div');
   var startDeg = 18;
   drift6.className = 'pano';
-  for (let i = 0; i < 6; i++) {//第一个漂浮层的图片数
+  for (var i = 0; i < 6; i++) {//第一个漂浮层的图片数
     var span = document.createElement('span');
     span.style.cssText = "height: 444px;margin-top: -222px;";
     css(span, 'translateY', -13);
     css(span, 'rotateY', startDeg);
     css(span, 'translateZ', -R);
-    span.style.backgroundImage = `url(${imgData.pano[num++]})`;
+    span.style.backgroundImage = 'url(' + imgData.pano[num++] + ')';
     drift6.appendChild(span);
     startDeg -= deg;
   }
   pano.appendChild(drift6);
-  setTimeout(() => {
+  setTimeout(function(){
     MTween({
       el: pano,
       target: {rotateX: 0, rotateY: -1415, scale: 100},
