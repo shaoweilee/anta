@@ -35,7 +35,7 @@ function setLoading(){
     img.src = data[i];
     img.onload = function(){
       num++;
-      logoText.innerHTML = `已加载${Math.floor(num/data.length*100)}%`
+      logoText.innerHTML = '已加载${Math.floor(num/data.length*100)}%';
       if (num == data.length) {
         //图片加载完成之后~
         anmt();
