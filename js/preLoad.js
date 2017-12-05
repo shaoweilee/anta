@@ -447,7 +447,9 @@ function setSensors(){
       dis.x = nowDeg.x - startDeg.x;
       dis.y = nowDeg.y - startDeg.y;
       css(pano, 'rotateX', startEl.x + dis.x);
-      css(pano, 'rotateX', startEl.y + dis.y);
+      css(pano, 'rotateY', startEl.y + dis.y); 
+      css(panobg, 'rotateX', startEl.x + dis.x);
+      css(panobg, 'rotateY', startEl.y + dis.y); 
       lastX = x;
       lastY = y;
     } else {
