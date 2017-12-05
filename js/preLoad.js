@@ -433,78 +433,45 @@ function setSensors(){
   var pano = document.querySelector('#pano');
   var panobg = document.querySelector('#panobg');
   var isStart = true;
-  var lastX = 0, lastY = 0;
-  var startDeg = {};
+  var start = {};
+  var now = {};
   var startEl = {};
   window.addEventListener('deviceorientation', function(e){
     var x = Math.round( e.beta );
     var y = Math.round( e.alpha );
-    if (!isStart) {
-      if (Math.abs(x-lastX)>1 || Math.abs(y-lastY)>1) {
-        var now = {};
-        now.x = x;
-        now.y = y;
-        var dis = {};
-        dis.x = now.x - startDeg.x;
-        dis.y = now.y - startDeg.y;
-        var deg = {};
-        deg.x = startDeg.x + dis.x - 90;
-        deg.y = startDeg.y + dis.y;
-        // css(pano, 'rotateX', startEl.x + dis.x);
-        // css(pano, 'rotateY', startEl.y + dis.y); 
-        // css(panobg, 'rotateX', startEl.x + dis.x);
-        // css(panobg, 'rotateY', startEl.y + dis.y); 
-        MTween({
-          el: pano,
-          target: {rotateX: deg.x, rotateY: deg.y},
-          time: 500,
-          type: 'easeOutStrong'
-        });
-        MTween({
-          el: panobg,
-          target: {rotateX: deg.x, rotateY: deg.y},
-          time: 500,
-          type: 'easeOutStrong'
-        });
-        lastX = x;
-        lastY = y;
-      } else {
-        var now = {};
-        now.x = x;
-        now.y = y;
-        var dis = {};
-        dis.x = now.x - startDeg.x;
-        dis.y = now.y - startDeg.y;
-        var deg = {};
-        deg.x = startDeg.x + dis.x - 90;
-        deg.y = startDeg.y + dis.y;
-        MTween({
-          el: pano,
-          target: {rotateX: deg.x, rotateY: deg.y},
-          time: 500,
-          type: 'easeOutStrong'
-        });
-        MTween({
-          el: panobg,
-          target: {rotateX: deg.x, rotateY: deg.y},
-          time: 500,
-          type: 'easeOutStrong'
-        });
-        // css(pano, 'rotateX', startEl.x + dis.x);
-        // css(pano, 'rotateY', startEl.y + dis.y); 
-        // css(panobg, 'rotateX', startEl.x + dis.x);
-        // css(panobg, 'rotateY', startEl.y + dis.y); 
-        lastX = x;
-        lastY = y;
-      }
-    } else {
+    if (isStart) {
       isStart = false;
-      startDeg.x = x;
-      startDeg.y = y;
+      start.x = x;
+      start.y = y;
       startEl.x = css(pano, 'rotateX');
       startEl.y = css(pano, 'rotateY');
-      lastX = x;
-      lastY = y;
+    } else {
+      now.x = x;
+      now.y = y;
+      var dis = {};
+      dis.x = now.x - start.x;
+      dis.y = now.y - start.y;
+      var expectDeg = {};
+      expectDeg.x = startEl.x + dis.x;
+      expectDeg.y = startEl.y + dis.y;
+      MTween({
+        el: pano,
+        target: {
+          rotateX: expectDeg.x,
+          rotateY: expectDeg.y
+        },
+        time: 500,
+        type: 'easeOut'
+      });
+      MTween({
+        el: panobg,
+        target: {
+          rotateX: expectDeg.x,
+          rotateY: expectDeg.y
+        },
+        time: 500,
+        type: 'easeOut'
+      });
     }
   });
 }
