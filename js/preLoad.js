@@ -436,7 +436,12 @@ function setSensors(){
   var start = {};
   var now = {};
   var startEl = {};
+  var lastTime = Date.now();
   window.addEventListener('deviceorientation', function(e){
+    var nowTime = Date.now();
+    if (nowTime - lastTime < 30) {
+      return;//13.40
+    }
     var x = Math.round( e.beta );
     var y = Math.round( e.alpha );
     if (isStart) {
