@@ -192,7 +192,7 @@ function anmt6(){//生成背景圆柱，圆柱入场
     target: {rotateX: 0, rotateY: -1415},//先旋转X轴
     time: 5000,
     type: "easeOutStrong",
-    callBack: drag
+    callBack: function(){drag();setSensors();}
   });
 }
 function anmt7(){//添加云朵
@@ -428,4 +428,36 @@ function createPano(){
       type: 'easeOutStrong'
     });
   }, 1500);
+}
+function setSensors(){
+  var pano = document.querySelector('#pano');
+  var panobg = document.querySelector('#panobg');
+  var isStart = true;
+  var lastX = 0, lastY = 0;
+  var startDeg = {};
+  var startEl = {};
+  window.addEventListener('deviceorientation', function(e){
+    var x = Math.round( e.beta );
+    var y = Math.round( e.alpha );
+    if (!isStart) {
+      var nowDeg = {};
+      nowDeg.x = x;
+      nowDeg.y = y;
+      var dis = {};
+      dis.x = nowDeg.x - startDeg.x;
+      dis.y = nowDeg.y - startDeg.y;
+      css(pano, 'rotateX', startEl.x + dis.x);
+      css(pano, 'rotateX', startEl.y + dis.y);
+      lastX = x;
+      lastY = y;
+    } else {
+      isStart = false;
+      startDeg.x = x;
+      startDeg.y = y;
+      startEl.x = css(pano, 'rotateX');
+      startEl.y = css(pano, 'rotateY');
+      lastX = x;
+      lastY = y;
+    }
+  });
 }
