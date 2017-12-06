@@ -443,7 +443,7 @@ function setSensors(){
       return;//13.40
     }
     lastTime = nowTime;
-    var x = Math.round( e.beta );
+    var x = Math.round( e.beta - 90 );
     var y = Math.round( e.alpha );
     if (isStart) {
       isStart = false;
