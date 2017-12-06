@@ -443,7 +443,7 @@ function setSensors(){
       return;//13.40
     }
     lastTime = nowTime;
-    var x = Math.round( e.beta - 90 );
+    var x = Math.round( e.beta );
     var y = Math.round( e.alpha );
     if (isStart) {
       isStart = false;
@@ -460,6 +460,11 @@ function setSensors(){
       var expectDeg = {};
       expectDeg.x = startEl.x + dis.x;
       expectDeg.y = startEl.y + dis.y;
+      if (expectDeg.x>20) {
+        expectDeg.x=20;
+      } else if(expectDeg.x<-20){
+        expectDeg.x=-20;
+      }
       MTween({
         el: pano,
         target: {
