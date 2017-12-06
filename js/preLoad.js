@@ -442,6 +442,7 @@ function setSensors(){
     if (nowTime - lastTime < 30) {
       return;//13.40
     }
+    lastTime = nowTime;
     var x = Math.round( e.beta );
     var y = Math.round( e.alpha );
     if (isStart) {
