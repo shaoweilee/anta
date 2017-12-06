@@ -246,6 +246,10 @@ function drag(){
   var panobgDeg = {x: 0, y: 0};
   var scale = {x: 129/18, y: 1170/90};
   document.addEventListener('touchstart', function(e){
+    window.isTouch = true;
+    clearInterval(pano.timer);
+    clearInterval(panobg.timer);
+    clearInterval(mainWrapper.timer);
     startPoint.x = e.changedTouches[0].pageX;
     startPoint.y = e.changedTouches[0].pageY;
     panobgDeg.x = css(panobg, "rotateY");
@@ -312,7 +316,11 @@ function drag(){
       el: mainWrapper,
       target: {translateZ: startZ},
       time: 500,
-      type: 'easeOutStrong'
+      type: 'easeOutStrong',
+      callBack: function(){
+        window.isTouch = false;
+        window.isStart = true;
+      }
     });
   });
 }
@@ -432,12 +440,16 @@ function createPano(){
 function setSensors(){
   var pano = document.querySelector('#pano');
   var panobg = document.querySelector('#panobg');
-  var isStart = true;
+  window.isStart = true;
   var start = {};
   var now = {};
   var startEl = {};
   var lastTime = Date.now();
+  window.isTouch = false;
   window.addEventListener('deviceorientation', function(e){
+    if (window.isTouch) {
+      return;
+    }
     var nowTime = Date.now();
     if (nowTime - lastTime < 30) {
       return;//13.40
