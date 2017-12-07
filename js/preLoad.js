@@ -456,7 +456,7 @@ function setSensors(){
     }
     lastTime = nowTime;
     var x = Math.round( e.beta );
-    var y = Math.round( e.alpha );
+    var y = Math.round( e.gamma );
     if (isStart) {
       isStart = false;
       start.x = x;
