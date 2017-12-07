@@ -457,6 +457,9 @@ function setSensors(){
     lastTime = nowTime;
     var x = Math.round( e.beta );
     var y = Math.round( e.alpha );
+    if (y>250) {
+      console.log(y);
+    }
     if (isStart) {
       isStart = false;
       start.x = x;
