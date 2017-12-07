@@ -451,15 +451,12 @@ function setSensors(){
       return;
     }
     var nowTime = Date.now();
-    if (nowTime - lastTime < 30) {
+    if (nowTime - lastTime < 21) {
       return;//13.40
     }
     lastTime = nowTime;
     var x = Math.round( e.beta );
-    var y = Math.round( e.alpha );
-    if (y>250) {
-      alert(y);
-    }
+    var y = Math.round( e.alpha );//我在手机上测试取值范围是0-360
     if (isStart) {
       isStart = false;
       start.x = x;
