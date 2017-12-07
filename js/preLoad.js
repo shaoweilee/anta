@@ -458,7 +458,7 @@ function setSensors(){
     var x = Math.round( e.beta );
     var y = Math.round( e.alpha );
     if (y>250) {
-      console.log(y);
+      alert(y);
     }
     if (isStart) {
       isStart = false;
