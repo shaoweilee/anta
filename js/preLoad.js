@@ -451,7 +451,7 @@ function setSensors(){
       return;
     }
     var nowTime = Date.now();
-    if (nowTime - lastTime < 21) {
+    if (nowTime - lastTime < 16) {
       return;//13.40
     }
     lastTime = nowTime;

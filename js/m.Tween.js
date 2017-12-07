@@ -198,7 +198,7 @@ function MTween(init){
 	var t = 0;
 	var b = {};
 	var c = {};
-	var d = init.time / 20;
+	var d = init.time / 15;
 	for(var s in init.target){ 
 		b[s] = css(init.el, s); 
 		c[s] = init.target[s] - b[s];
