@@ -483,7 +483,7 @@ function setSensors(){
           rotateX: expectDeg.x,
           rotateY: expectDeg.y
         },
-        time: 500,
+        time: 200,
         type: 'easeOut'
       });
       MTween({
@@ -492,7 +492,7 @@ function setSensors(){
           rotateX: expectDeg.x,
           rotateY: expectDeg.y
         },
-        time: 500,
+        time: 200,
         type: 'easeOut'
       });
     }
