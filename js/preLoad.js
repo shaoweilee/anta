@@ -471,7 +471,7 @@ function setSensors(){
       dis.y = now.y - start.y;
       var expectDeg = {};
       expectDeg.x = startEl.x + dis.x;
-      expectDeg.y = startEl.y + dis.y;
+      expectDeg.y = startEl.y - dis.y;
       if (expectDeg.x>20) {
         expectDeg.x=20;
       } else if(expectDeg.x<-20){
