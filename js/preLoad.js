@@ -1,6 +1,6 @@
 (function(){
-  // setLoading();
-  anmt5();
+  setLoading();
+  // anmt5();
   setPerc();
 })();
 function setPerc(){
