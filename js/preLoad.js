@@ -192,7 +192,7 @@ function anmt6(){//生成背景圆柱，圆柱入场
     target: {rotateX: 0, rotateY: -1415},//先旋转X轴
     time: 5000,
     type: "easeOutStrong",
-    callBack: function(){drag();setSensors();}
+    callBack: function(){drag();/*setSensors();*/}
   });
 }
 function anmt7(){//添加云朵
