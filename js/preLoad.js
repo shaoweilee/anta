@@ -56,7 +56,7 @@ function anmt() {
   css(img, 'scale', 0);
   MTween({
     el: logo1,
-    target: {opacity: 0},
+    target: {scale: 0},
     time: 1000,
     type: "linear",
     callBack: function(){

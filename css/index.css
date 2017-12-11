@@ -6,6 +6,14 @@
     transform: rotateY(360deg);
   }
 }
+@keyframes rotateCircle{
+  0%{
+    transform: rotateZ(0deg);
+  }
+  100%{
+    transform: rotateZ(360deg);
+  }
+}
 
 body,
 p{
@@ -23,16 +31,27 @@ html{
   overflow: hidden;
   perspective: 300px;
 }
-.logoImg{
+/* .logoImg{
   position: absolute;left: 35%;width: 30%;top: 50%;
   margin-top: -15%;
   animation: 2s rotateY linear infinite;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
+} */
+.logoImg{
+  position: absolute;left: 25%;width: 50%;top: 50%;
+  margin-top: -25%;
+  /* animation: 2s rotateCircle linear infinite; */
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 .logoImg img{
+  position: absolute;left: 0;top: 0;
   width: 100%;
   /* transform: scaleX(0, 0) */
+}
+#rotate{
+  animation: 1s rotateCircle linear infinite;
 }
 .logoText{
   position: absolute;
