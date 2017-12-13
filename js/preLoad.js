@@ -153,7 +153,7 @@ function anmt3(){
   var logo4 = document.createElement('div');
   var logoIcons = document.createElement('div');
   var logo4Img = new Image();
-  logo4Img.src = imgData.logo[2];
+  logo4Img.src = imgData.logo[3];
   logo4Img.id = 'logo4Img';
   var iconLength = 27;
   logo4.id = 'logo4';

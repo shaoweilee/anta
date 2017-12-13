@@ -2,7 +2,8 @@ var imgData = {
 	logo:[
 		"load/logo2.png",
 		"load/logo3.png",
-		"load/logo4.png"
+		"load/logo4.png",
+		"load/logo5.png"
 	],
 	logoIco:[
 		"load/loadIco1.png",
