@@ -56,61 +56,97 @@ function anmt() {
   css(img, 'scale', 0);
   MTween({
     el: logo1,
-    target: {scale: 0},
-    time: 1000,
+    target: {scale: 130, opacity:0},
+    time: 300,
     type: "linear",
-    callBack: function(){
-      view.appendChild(logo2);
-      MTween({
-        el: img,
-        target: {scale: 100},
-        time: 800,
-        type: "bounceOut",
-        callBack: function(){
-          setTimeout(anmt2, 2000);
-        }
-      });
-    }
+    callBack: anmt3
   });
+  // MTween({
+  //   el: logo1,
+  //   target: {scale: 0},
+  //   time: 1000,
+  //   type: "linear",
+  //   callBack: function(){
+  //     view.appendChild(logo2);
+  //     MTween({
+  //       el: img,
+  //       target: {scale: 100},
+  //       time: 800,
+  //       type: "bounceOut",
+  //       callBack: function(){
+  //         setTimeout(anmt2, 2000);
+  //       }
+  //     });
+  //   }
+  // });
 }
+// function anmt() {
+//   var view = document.querySelector('#view');
+//   var logo1 = document.querySelector('#logo1');
+//   var logo2 = document.createElement('div');
+//   var img = new Image();
+//   img.src = imgData.logo[0];
+//   logo2.id = 'logo2';
+//   logo2.className = 'logoImg';
+//   logo2.appendChild(img);
+//   css(img, 'scale', 0);
+//   MTween({
+//     el: logo1,
+//     target: {scale: 0},
+//     time: 1000,
+//     type: "linear",
+//     callBack: function(){
+//       view.appendChild(logo2);
+//       MTween({
+//         el: img,
+//         target: {scale: 100},
+//         time: 800,
+//         type: "bounceOut",
+//         callBack: function(){
+//           setTimeout(anmt2, 2000);
+//         }
+//       });
+//     }
+//   });
+// }
 // 隐藏logo1，显示logo2
-function anmt2() {
-  var view = document.querySelector('#view');
-  var logo2 = document.querySelector('#logo2');
-  var logo3 = document.createElement('div');
-  var img = new Image();
-  img.src = imgData.logo[1];
-  logo3.id = 'logo2';
-  logo3.className = 'logoImg';
-  logo3.appendChild(img);
-  css(img, 'scale', 0);
-  MTween({
-    el: logo2.querySelector('img'),
-    target: {scale: 0},
-    time: 500,
-    type: "linear",
-    callBack: function(){
-      view.appendChild(logo3);
-      MTween({
-        el: img,
-        target: {scale: 100},
-        time: 800,
-        type: "bounceOut",
-        callBack: function(){
-          setTimeout(function(){
-            MTween({
-              el: img,
-              target: {scale: 0},
-              time: 800,
-              type: "bounceOut",
-              callBack: anmt3
-            });
-          }, 1000);
-        }
-      });
-    }
-  });
-}
+// function anmt2() {
+//   var view = document.querySelector('#view');
+//   var logo2 = document.querySelector('#logo2');
+//   var logo3 = document.createElement('div');
+//   var img = new Image();
+//   img.src = imgData.logo[1];
+//   logo3.id = 'logo2';
+//   logo3.className = 'logoImg';
+//   logo3.appendChild(img);
+//   css(img, 'scale', 0);
+//   MTween({
+//     el: logo2.querySelector('img'),
+//     target: {scale: 0},
+//     time: 500,
+//     type: "linear",
+//     callBack: function(){
+//       view.appendChild(logo3);
+//       MTween({
+//         el: img,
+//         target: {scale: 100},
+//         time: 800,
+//         type: "bounceOut",
+//         callBack: function(){
+//           setTimeout(function(){
+//             MTween({
+//               el: img,
+//               target: {scale: 0},
+//               time: 800,
+//               type: "bounceOut",
+//               callBack: anmt3
+//             });
+//           }, 1000);
+//         }
+//       });
+//     }
+//   });
+// }
 function anmt3(){
   var view = document.querySelector('#view');
   var logo4 = document.createElement('div');
