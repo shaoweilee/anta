@@ -38,7 +38,8 @@ function setLoading(){
       logoText.innerHTML = '已加载'+Math.floor(num/data.length*100) + '%';
       if (num == data.length) {
         //图片加载完成之后~
-        anmt();
+        setTimeout(anmt, 500);
+        // anmt();
       }
     }
   }
